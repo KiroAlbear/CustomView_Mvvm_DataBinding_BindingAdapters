@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 
 
-@BindingAdapter("app:textChangedListener")
-fun onTextChanged(et: EditText,textView: TextView) {
+@BindingAdapter("app:textChangedListener","app:validateBar1")
+fun onTextChanged(et: EditText,textView: TextView,textView2: TextView) {
     et.addTextChangedListener(object : TextWatcher {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
 
@@ -20,6 +20,11 @@ fun onTextChanged(et: EditText,textView: TextView) {
                 textView.visibility = View.VISIBLE
             }else
                 textView.visibility = View.GONE
+
+            if (et.text.toString().contains("5")) {
+                textView2.visibility = View.VISIBLE
+            }else
+                textView2.visibility = View.GONE
         }
     })
 }

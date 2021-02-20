@@ -25,21 +25,31 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/purple_500"
         app:textChangedListener="@{validateTextView}"
+        app:validateBar1="@{secondValidateTextView}"
         android:text="@{vm.editeTextString}"
         app:layout_constraintTop_toTopOf="parent">
     </EditText>
 
     <TextView
         android:id="@+id/validateTextView"
-        android:layout_width="match_parent"
+        android:layout_width="50dp"
         android:layout_height="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
+
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@id/customEditeText">
 
     </TextView>
+
+    <TextView
+        android:id="@+id/secondValidateTextView"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        app:layout_constraintStart_toEndOf="@id/validateTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customEditeText"
+        android:background="@color/teal_200"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
