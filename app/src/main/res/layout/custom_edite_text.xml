@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    android:id="@+id/customConstraintLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+  >
+
+<data>
+<variable
+    name="vm"
+    type="com.example.practiceandroid.viewModels.CustomEditeTextViewModel" />
+
+    <import type="com.example.practiceandroid.BindingAdaptersKt"/>
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/customEditeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/purple_500"
+        app:textChangedListener="@{validateTextView}"
+        android:text="@{vm.editeTextString}"
+        app:layout_constraintTop_toTopOf="parent">
+    </EditText>
+
+    <TextView
+        android:id="@+id/validateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/customEditeText">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
